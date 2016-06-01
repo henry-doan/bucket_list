@@ -23,10 +23,16 @@ class ListsController < ApplicationController
   end
 
   def update
+    if @list.update
+      redirect_to list_path(@list)
+    else
+      render :edit
   end
 
 
   def destroy
+    @list.destroy
+    redirect_to root_path
   end
 
   private
