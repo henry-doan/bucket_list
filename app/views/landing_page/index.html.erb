@@ -1,4 +1,18 @@
-<h1>LandingPage#index</h1>
-<p>Find me in app/views/landing_page/index.html.erb</p>
+<h1>Welcome to the Bucket List user <%= current_user.email%></h1>
 
+<% if @lists.any? %>
+		<ul>
+			<% @lists.each do |list| %>
+				<li>
+					<%= link_to list.name, list_path(list)%>
+					<%= list.description %>
+				</li>
+			<% end %>
+		</ul>
+<% else %>
+			<h2>You Have No List, Go And Create One!</h2>
+		<!-- show suggestion? -->
+<% end %>
+
+<%= link_to 'New Bucket List', new_list_path %>
 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
