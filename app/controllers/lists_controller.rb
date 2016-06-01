@@ -17,6 +17,7 @@ class ListsController < ApplicationController
       redirect_to list_path(@list)
     else
       render :new
+    end
   end
 
   def edit
@@ -27,6 +28,7 @@ class ListsController < ApplicationController
       redirect_to list_path(@list)
     else
       render :edit
+    end
   end
 
 
