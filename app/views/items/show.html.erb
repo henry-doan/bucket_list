@@ -1,4 +1,7 @@
 <h1>Your items</h1>
 
 <%= @item.name %>
-<h1><%= @item.description %></h1>
+<%= @item.description %>
+
+<%= link_to "Delete this Item",  list_item_path(@list), method: :delete %>
+<%= link_to 'Add new item', new_list_item_path(@list)%>
