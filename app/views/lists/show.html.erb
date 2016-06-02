@@ -1,6 +1,6 @@
 <h1>Bucket List</h1>
 
-<% if @list.items %>
+<% if @list.items.any? %>
   <ul>
     <% @list.items.each do |i| %>
       <li>

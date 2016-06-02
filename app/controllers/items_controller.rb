@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.lists.find(params[:list_id]).items.new(@item)
+    @item = current_user.lists.find(params[:list_id]).items.new(item_params)
     if @item.save
       redirect_to list_item_path(@item.list, @item)
     else
