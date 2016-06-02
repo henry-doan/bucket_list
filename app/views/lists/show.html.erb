@@ -1,8 +1,8 @@
 <h1>Bucket List</h1>
 
-<% if @items.any? %>
+<% if @list.items %>
   <ul>
-    <% @items.each do |i| %>
+    <% @list.items.each do |i| %>
       <li>
         <%= link_to i.name, item_path(i) %>
       </li>
