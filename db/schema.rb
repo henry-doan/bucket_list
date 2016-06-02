@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20160601220117) do
     t.string   "description"
     t.boolean  "like"
     t.boolean  "complete"
-    t.string   "type"
+    t.string   "classification"
     t.integer  "list_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "lists", force: :cascade do |t|

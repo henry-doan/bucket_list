@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 
   def index
-  	@items = current_user.list.items
+  	@items = current_user.lists.find(params[:list_id]).items
   end
 
   def show
@@ -14,6 +14,16 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
+    @list = List.find(params[:list_id])
+  end
+
+  def create
+    @item = current_user.lists.find(params[:list_id]).items.new(@item)
+    if @item.save
+      redirect_to list_item_path(@item.list, @item)
+    else
+      render :new
+    end
   end
 
   def update
