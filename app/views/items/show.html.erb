@@ -4,5 +4,6 @@
 <%= @item.description %>
 
 
-<%= link_to "Edit this Item", edit_list_item_path %>
+<%= link_to "Edit this Item", edit_list_item_path(@item.list_id, @item) %>
 <%= link_to "Delete this item", list_item_path(@item.list_id, @item), method: :delete %>
+

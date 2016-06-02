@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :list, only: [:edit]
   before_action :item, only: [:show, :edit, :destroy, :update] 
 
 
