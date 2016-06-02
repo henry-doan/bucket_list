@@ -1,25 +1,22 @@
 class ItemsController < ApplicationController
-  before_action :list
-  before_action :item, only: [:index, :new, :create, :show, :edit] 
+  before_action :item, only: [:show, :edit, :destroy, :update] 
 
 
   def index
-  	@items = current_user.items
+  	@items = current_user.list.items
   end
 
   def show
-  	current_user.items.find(params[:id])
   end
 
   def edit
   end
 
   def new
-  	@item = current_user.items.new
+  	@item = Item.new
   end
 
   def update
-  	@item = @item.find(params[:id])
     if @location.update(location_params)
       redirect_to friend_path(@friend)
     else
@@ -38,12 +35,12 @@ class ItemsController < ApplicationController
 	    params.require(:item).permit(:name, :description, :like, :complete, :type )
 	  end
 
-	  def item
-	  	@item = current_user.items.find(params[:id])
+		def item
+	  	@item = Item.find(params[:id])
 	  end
-
-	  def list
-	  	@list = current_user.lists.find(params[:id])
-	  end
-	end
+	  
+    def list
+      @list = List.find(params[:id])
+    end
 end
+
