@@ -4,7 +4,7 @@
   <ul>
     <% @list.items.each do |i| %>
       <li>
-        <%= link_to i.name, item_path(i) %>
+        <%= link_to i.name, list_item_path(@list, i) %>
       </li>
     <% end %>
   </ul>
