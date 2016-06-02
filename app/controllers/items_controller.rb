@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
       render :edit
   	end
 	end
-
+# Method for create
 	def destroy
     @item.destroy
     redirect_to list_item_path(@item)
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 		def item
 	  	@item = Item.find(params[:id])
 	  end
-	  
+
     def list
       @list = List.find(params[:id])
     end
