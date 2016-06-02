@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 # Method for create
 	def destroy
     @item.destroy
-    redirect_to list_item_path(@item)
+    redirect_to list_path(params[:list_id])
   end
 
 	private
