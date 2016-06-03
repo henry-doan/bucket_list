@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :list, only: [:edit]
+  before_action :list, only: [:edit, :new]
   before_action :item, only: [:show, :edit, :destroy, :update] 
 
 
@@ -15,21 +15,20 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
-    @list = List.find(params[:list_id])
   end
 
   def create
     @item = current_user.lists.find(params[:list_id]).items.new(item_params)
     if @item.save
-      redirect_to list_item_path(@item.list, @item)
+      redirect_to list_path(params[:list_id])
     else
       render :new
     end
   end
 
   def update
-    if @location.update(location_params)
-      redirect_to friend_path(@friend)
+    if @item.update(item_params)
+      redirect_to list_item_path(@item.list, @item)
     else
       render :edit
   	end
@@ -43,7 +42,7 @@ class ItemsController < ApplicationController
 	private
 
 		def item_params
-	    params.require(:item).permit(:name, :description, :like, :complete, :type )
+	    params.require(:item).permit(:name, :description, :like, :complete, :classification)
 	  end
 
 		def item
@@ -51,7 +50,7 @@ class ItemsController < ApplicationController
 	  end
 
     def list
-      @list = List.find(params[:id])
+      @list = List.find(params[:list_id])
     end
 end
 
