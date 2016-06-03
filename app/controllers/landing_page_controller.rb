@@ -1,6 +1,6 @@
 class LandingPageController < ApplicationController
   def index
-    @lists = current_user.lists
+    @lists = current_user.lists.paginate(page: params[:page], :per_page => 2)
   end
 
   def show

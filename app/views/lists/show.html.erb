@@ -1,16 +1,18 @@
-<h1>Bucket List</h1>
+<div class="container">
+  <h1>Bucket List</h1>
 
-<% if @list.items.any? %>
-  <ul>
-    <% @list.items.each do |i| %>
-      <li>
-        <%= link_to i.name, list_item_path(@list, i) %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Add an item!</p>
-<% end %>
+  <% if @list.items.any? %>
+    <ul>
+      <% @list.items.each do |i| %>
+        <li>
+          <%= link_to i.name, list_item_path(@list, i) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Add an item!</p>
+  <% end %>
 
-<%= link_to 'Add new item', new_list_item_path(@list)%>
-<%= link_to "Delete this list",  list_path(@list), method: :delete %>
+  <%= link_to 'Add new item', new_list_item_path(@list)%>
+  <%= link_to "Delete this list",  list_path(@list), method: :delete %>
+</div>
