@@ -8,3 +8,15 @@ main {
   flex: 1 0 auto;
 }
 
+
+.flash.alert {
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	font-size: 20px;
+	font-style: italic;
+	border-radius: 10px;
+	background-color: green;
+	color: white;
+	text-transform: uppercase;
+}
