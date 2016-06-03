@@ -1,18 +1,30 @@
 <%= form_for [@list, @item] do |f|%>
-	<%= f.label :name%>
-	<%= f.text_field :name %>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
+	<div class="row">
+		<div class="input-field col s4 offset-s4">
+			<%= f.label :name, :class => "validate"%>
+			<%= f.text_field :name %>
+		</div>
+	</div>
 
-	<%= f.label :like %>
-	<%= f.button :like %>
+	<div class="row">
+		<div class="input-field col s4 offset-s4">
+			<%= f.label :description, :class => "validate" %>
+			<%= f.text_area :description, :class => "materialize-textarea" %>
+		</div>
 
-	<%= f.label :complete %>
-	<%= f.check_box :complete %>
+		<div class="input-field col s4 offset-s4">
+			<%= f.check_box :complete %>
+			<%= f.label :complete %>
+		</div>
+	</div>
 
-	<%= f.label :classification %>
-	<%= f.select :classification, options_for_select(["Select One", "travel","sports","shows/plays","Miscellaneous"]) %>
+		<%= f.label :classification, :class => "validate" %>
+		<div class="row">
+			<div class="input-field col s4 offset-s4">
+			<%= f.select :classification, options_for_select(["Select One", "travel","sports","shows/plays","Miscellaneous"]), {}, class: "browser-default" %>
+		</div>
+	</div>
 
 	<%= f.submit %>
 
