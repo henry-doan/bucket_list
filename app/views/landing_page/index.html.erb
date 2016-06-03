@@ -1,19 +1,56 @@
-<h1>Welcome to the Bucket List user <%= current_user.email%></h1>
-
-
-<% if @lists.any? %>
-		<ul>
-			<% @lists.each do |list| %>
-				<li>
-					<%= link_to list.name, list_path(list)%>
-					<%= list.description %>
-				</li>
+<div class="container">
+	<div>
+		<h3>Welcome, <%= current_user.email%>!</h3>
+	</div>
+	<div class="row">
+		<div class="col s12 m9">
+			<br />
+			<div>
+				<%= link_to 'New Bucket List', new_list_path %>
+			</div>
+		</div>	
+		<div class="col s12 m3">
+			<h5>Feed</h5>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col s12 m8">
+			<% if @lists.any? %>
+					<% @lists.each do |list| %>
+						<div class="row">
+						  <div class="col s12 m12">
+						    <div class="card blue-grey darken-1">
+						      <div class="card-content white-text">
+						        <span class="card-title activator"><%= link_to list.name, list_path(list)%><i class="material-icons right">more_vert</i></span>
+						        <p><%= list.description %></p>
+						      </div>
+						      <div class="card-action">
+						        <%= link_to 'Add new item', new_list_item_path(list, @item)%>
+						        <%= link_to "Delete this list",  list_path(list), method: :delete %>
+						      </div>
+						      <div class="card-reveal">
+						        <% if list.items.count >= 2 %>
+						        	<span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
+						        	<p><%= list.items.sample[:name] %> and <%= list.items.sample[:name] %></p>
+						        <% elsif list.items.count == 1
+						        	 %>
+						        	 <span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
+						        	 <p><%= list.items.sample[:name] %></p>
+						        <% elsif %>
+						        	<span class="card-title grey-text text-darken-4"><%= list.name %><i class="material-icons right">close</i></span>
+						        	<p>You don't have anything included on this list. Try adding something that you would like to do!</p>
+						        <% end %>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					<% end %>
+			<% else %>
+						<h5>You haven't made a list yet. Go create one!</h5>
+					<!-- show suggestion? -->
 			<% end %>
-		</ul>
-<% else %>
-			<h2>You Have No List, Go And Create One!</h2>
-		<!-- show suggestion? -->
-<% end %>
-
-<%= link_to 'New Bucket List', new_list_path %>
-<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+		</div>
+		<div class="col s12 m3 offset-by-1">
+			<p>This is where information from the feed will go</p>
+		</div>
+</div>
