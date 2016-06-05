@@ -1,14 +1,17 @@
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Edit Password', edit_user_password_path %></li>
+  <li><%= link_to 'Edit Profile', edit_user_registration_path %> </li>
+  <li class="divider"></li>
+  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+</ul>
 <nav>
   <div class="nav-wrapper">
-    <div class="container">  
-      <%= link_to 'BUCKET LIST', root_path %>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-      </ul>
-    </div>
+    <%= link_to 'BUCKET LIST', root_path, class: "brand-logo" %>
+    <ul class="right hide-on-med-and-down">
+      <li></li>
+      <li></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
   </div>
 </nav>
