@@ -1,22 +1,23 @@
 <div class="container">
 	<div>
-		<h3>Welcome, <%= current_user.email%>!</h3>
+		<h3>Welcome, <%= current_user.email %>!</h3>
 	</div>
 	<div class="row">
 		<div class="col s12 m9">
 			<br />
 			<div>
-				<%= link_to 'New Bucket List', new_list_path %>
+				<%= link_to 'New Bucket List', new_list_path, class: 'waves-effect waves-light btn modal-trigger blue-text text-lighten-4' %>
+				<a class="waves-effect waves-light btn modal-trigger blue-text text-lighten-4" href="#modal1">Suggestion</a>
 			</div>
-		</div>	
+		</div>
 		<div class="col s12 m3">
 			<h5>Feed</h5>
 		</div>
-	</div>	
+	</div>
 	<div class="row">
 		<div class="col s12 m8">
-			<% if @lists.any? %>
-					<% @lists.each do |list| %>
+			<% if @my_lists.any? %>
+					<% @my_lists.each do |list| %>
 						<div class="row">
 						  <div class="col s12 m12">
 						    <div class="card indigo">
@@ -47,57 +48,55 @@
 					<% end %>
 			<% else %>
 						<h5>You haven't made a list yet. Go create one!</h5>
-					<!-- show suggestion -->
-					<a class="waves-effect waves-light btn modal-trigger blue-text text-lighten-4" href="#modal1">Suggestion</a>
-
-					  <div id="modal1" class="modal bottom-sheet">
-					    <div class="modal-content">
-					      <h4>Suggestions</h4>
-					      <ul class="collection">
-					          <li class="collection-item avatar">
-					          	<i class="material-icons circle green">assessment</i>
-					          	<span class="Title">Item Name</span>
-					          	<p>Description</p>
-					          	<a href="#!" class="secondary-content">
-					          		<i class="material-icons top">grade</i>
-					          	</a>
-					          </li>
-					          <li class="collection-item avatar">
-					          	<i class="material-icons circle green">assessment</i>
-					          	<span class="Title">Item Name</span>
-					          	<p>Description</p>
-					          	<a href="#!" class="secondary-content">
-					          		<i class="material-icons top">grade</i>
-					          	</a>
-					          </li>
-					          <li class="collection-item avatar">
-					          	<i class="material-icons circle green">assessment</i>
-					          	<span class="Title">Item Name</span>
-					          	<p>Description</p>
-					          	<a href="#!" class="secondary-content">
-					          		<i class="material-icons top">grade</i>
-					          	</a>
-					          </li>
-					          <li class="collection-item avatar">
-					          	<i class="material-icons circle green">assessment</i>
-					          	<span class="Title">Item Name</span>
-					          	<p>Description</p>
-					          	<a href="#!" class="secondary-content">
-					          		<i class="material-icons top">grade</i>
-					          	</a>
-					          </li>
-					      </ul>
-					    </div>
-					    <div class="modal-footer">
-					      <%= link_to 'Make A New List', new_list_path, class: "modal-action modal-close waves-effect waves-green btn right" %>
-					    </div>
-					  </div>
-
 			<% end %>
 		</div>
 		<div class="col s12 m3 offset-by-1">
 			<p>This is where information from the feed will go</p>
 		</div>
 	</div>
-	<%= will_paginate @lists %>
+
+	<div id="modal1" class="modal bottom-sheet">
+	  <div class="modal-content">
+	   <h4>Suggestions</h4>
+	    <ul class="collection">
+	    	<% @lists.each do |list| %>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= @lists.sample.name %></span>
+	        	<p><%= @lists.sample.description %></p>
+	        	<a href="#!" class="secondary-content">
+	        		<i class="material-icons top">control_point</i>
+	        	</a>
+	        </li>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= @lists.sample.name %></span>
+	        	<p><%= @lists.sample.description %></p>
+	        	<a href="#!" class="secondary-content">
+	        		<i class="material-icons top">control_point</i>
+	        	</a>
+	        </li>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= @lists.sample.name %></span>
+	        	<p><%= @lists.sample.description %></p>
+	        	<a href="#!" class="secondary-content">
+	        		<i class="material-icons top">control_point</i>
+	        	</a>
+	        </li>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= @lists.sample.name %></span>
+	        	<p><%= @lists.sample.description %></p>
+	        	<a href="#!" class="secondary-content">
+	        		<i class="material-icons top">control_point</i>
+	        	</a>
+	        </li>
+	      <% end %>
+	    </ul>
+	  </div>
+	  <div class="modal-footer">
+	    <%= link_to 'Make A New List', new_list_path, class: "modal-action close waves-effect waves-green btn right" %>
+	  </div>
+	</div>
 </div>
