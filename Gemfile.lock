@@ -49,6 +49,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    commontator (4.11.1)
+      jquery-rails
+      rails (>= 3.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     deep_cloneable (2.2.1)
@@ -166,6 +169,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.1.0)
   deep_cloneable (~> 2.2.1)
+  commontator
   devise (~> 4.1.1)
   jbuilder (~> 2.0)
   jquery-rails

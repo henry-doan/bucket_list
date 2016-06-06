@@ -1,6 +1,10 @@
 <div class="container">
 	<div>
+<<<<<<< HEAD
 		<h3>Welcome, <%= current_user.email %>!</h3>
+=======
+		<h3 class="white-text">Welcome, <%= current_user.email%>!</h3>
+>>>>>>> 1f4edfb61fd1b0b0c788bff711361589c3ab3f48
 	</div>
 	<div class="row">
 		<div class="col s12 m9">
@@ -12,12 +16,20 @@
 		</div>
 		<div class="col s12 m3">
 			<h5>Feed</h5>
+			<ul>
+				<% @comments.each do |comment| %>
+				  <li>
+				    <%= comment.display %>
+				    <hr />
+				  </li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col s12 m8">
-			<% if @my_lists.any? %>
-					<% @my_lists.each do |list| %>
+			<% if @lists.any? %>
+					<% @lists.each do |list| %>
 						<div class="row">
 						  <div class="col s12 m12">
 						    <div class="card indigo">
@@ -50,16 +62,13 @@
 						<h5>You haven't made a list yet. Go create one!</h5>
 			<% end %>
 		</div>
-		<div class="col s12 m3 offset-by-1">
-			<p>This is where information from the feed will go</p>
-		</div>
 	</div>
 
 	<div id="modal1" class="modal bottom-sheet">
 	  <div class="modal-content">
 	   <h4>Suggestions</h4>
 	    <ul class="collection">
-	    	<% @lists.each do |list| %>
+	    	<% @ex_lists.each do |list| %>
 	        <li class="collection-item avatar">
 	        	<i class="material-icons circle green">assessment</i>
 	        	<span class="Title"><%= list.name %></span>
