@@ -7,88 +7,14 @@
 	</div>
 	
 	<div class="row">
-			<div class="col s12 m9">
-				<% if @lists.any? %>
-						<% @lists.each do |list| %>
-							<div class="row">
-							  <div class="col s12 m12">
-							    <div class="card indigo">
-							      <div class="card-content white-text">
-							        <span class="card-title activator"><%= link_to list.name, list_path(list)%><i class="material-icons right">more_vert</i></span>
-							        <p><%= list.description %></p>
-							      </div>
-							      <div class="card-action">
-							        <%= link_to 'Add new item', new_list_item_path(list, @item), class: "blue-text text-lighten-4"%>
-							        <%= link_to "Delete this list",  list_path(list), method: :delete, class: "blue-text text-lighten-4" %>
-							      </div>
-							      <div class="card-reveal">
-							        <% if list.items.count >= 2 %>
-							        	<span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
-							        	<p><%= list.items.sample[:name] %> and <%= list.items.sample[:name] %></p>
-							        <% elsif list.items.count == 1
-							        	 %>
-							        	 <span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
-							        	 <p><%= list.items.sample[:name] %></p>
-							        <% elsif %>
-							        	<span class="card-title grey-text text-darken-4"><%= list.name %><i class="material-icons right">close</i></span>
-							        	<p>You don't have anything included on this list. Try adding something that you would like to do!</p>
-							        <% end %>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-						<% end %>
-				<% else %>
-							<h5>You haven't made a list yet. Go create one!</h5>
-						<!-- show suggestion -->
-						<a class="waves-effect waves-light btn modal-trigger blue-text text-lighten-4" href="#modal1">Suggestion</a>
 
-						  <div id="modal1" class="modal bottom-sheet">
-						    <div class="modal-content">
-						      <h4>Suggestions</h4>
-						      <ul class="collection">
-						          <li class="collection-item avatar">
-						          	<i class="material-icons circle green">assessment</i>
-						          	<span class="Title">Item Name</span>
-						          	<p>Description</p>
-						          	<a href="#!" class="secondary-content">
-						          		<i class="material-icons top">grade</i>
-						          	</a>
-						          </li>
-						          <li class="collection-item avatar">
-						          	<i class="material-icons circle green">assessment</i>
-						          	<span class="Title">Item Name</span>
-						          	<p>Description</p>
-						          	<a href="#!" class="secondary-content">
-						          		<i class="material-icons top">grade</i>
-						          	</a>
-						          </li>
-						          <li class="collection-item avatar">
-						          	<i class="material-icons circle green">assessment</i>
-						          	<span class="Title">Item Name</span>
-						          	<p>Description</p>
-						          	<a href="#!" class="secondary-content">
-						          		<i class="material-icons top">grade</i>
-						          	</a>
-						          </li>
-						          <li class="collection-item avatar">
-						          	<i class="material-icons circle green">assessment</i>
-						          	<span class="Title">Item Name</span>
-						          	<p>Description</p>
-						          	<a href="#!" class="secondary-content">
-						          		<i class="material-icons top">grade</i>
-						          	</a>
-						          </li>
-						      </ul>
-						    </div>
-						    <div class="modal-footer">
-						      <%= link_to 'Make A New List', new_list_path, class: "modal-action modal-close waves-effect waves-green btn right" %>
-						    </div>
-						  </div>
-
-				<% end %>
+		<div class="col s12 m9">
+			<br />
+			<div>
+				<%= link_to 'New Bucket List', new_list_path, class: 'waves-effect waves-light btn modal-trigger blue-text text-lighten-4' %>
+				<a class="waves-effect waves-light btn modal-trigger blue-text text-lighten-4" href="#modal1">Suggestion</a>
 			</div>
-
+		</div>
 
 		<div class="col s12 m3">
 			<h5>Feed</h5>
@@ -101,6 +27,71 @@
 				<% end %>
 			</ul>
 		</div>
+
 	</div>	
 	<%= will_paginate @lists %>
+
+	</div>
+	<div class="row">
+		<div class="col s12 m8">
+			<% if @lists.any? %>
+					<% @lists.each do |list| %>
+						<div class="row">
+						  <div class="col s12 m12">
+						    <div class="card indigo">
+						      <div class="card-content white-text">
+						        <span class="card-title activator"><%= link_to list.name, list_path(list)%><i class="material-icons right">more_vert</i></span>
+						        <p><%= list.description %></p>
+						      </div>
+						      <div class="card-action">
+						        <%= link_to 'Add new item', new_list_item_path(list, @item), class: "blue-text text-lighten-4"%>
+						        <%= link_to "Delete this list",  list_path(list), method: :delete, class: "blue-text text-lighten-4" %>
+						      </div>
+						      <div class="card-reveal">
+						        <% if list.items.count >= 2 %>
+						        	<span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
+						        	<p><%= list.items.sample[:name] %> and <%= list.items.sample[:name] %></p>
+						        <% elsif list.items.count == 1
+						        	 %>
+						        	 <span class="card-title grey-text text-darken-4">Some items on the list include:<i class="material-icons right">close</i></span>
+						        	 <p><%= list.items.sample[:name] %></p>
+						        <% elsif %>
+						        	<span class="card-title grey-text text-darken-4"><%= list.name %><i class="material-icons right">close</i></span>
+						        	<p>You don't have anything included on this list. Try adding something that you would like to do!</p>
+						        <% end %>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					<% end %>
+			<% else %>
+						<h5>You haven't made a list yet. Go create one!</h5>
+			<% end %>
+		</div>
+	</div>
+
+	<div id="modal1" class="modal bottom-sheet">
+	  <div class="modal-content">
+	   <h4>Suggestions</h4>
+	    <ul class="collection">
+	    	<% @ex_lists.each do |list| %>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= list.name %></span>
+	        	<p><%= list.description %></p>
+	        	<form method='post' action="/copy/<%= list.id %>">
+	        		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	        	  <button type='submit' class= "btn">+</button>
+	        	</form>
+	        	<!-- <button class="btn" href="/copy" type="post">
+	        		<i class="material-icons top">control_point</i>
+	        	</button> -->
+	        </li>
+	      <% end %>
+	    </ul>
+	  </div>
+	  <div class="modal-footer">
+	    <%= link_to 'Make A New List', new_list_path, class: "modal-action close waves-effect waves-green btn right" %>
+	  </div>
+	</div>
 </div>
