@@ -62,35 +62,15 @@
 	    	<% @lists.each do |list| %>
 	        <li class="collection-item avatar">
 	        	<i class="material-icons circle green">assessment</i>
-	        	<span class="Title"><%= @lists.sample.name %></span>
-	        	<p><%= @lists.sample.description %></p>
-	        	<a href="#!" class="secondary-content">
+	        	<span class="Title"><%= list.name %></span>
+	        	<p><%= list.description %></p>
+	        	<form method='post' action="/copy/<%= list.id %>">
+	        		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	        	  <button type='submit' class= "btn">+</button>
+	        	</form>
+	        	<!-- <button class="btn" href="/copy" type="post">
 	        		<i class="material-icons top">control_point</i>
-	        	</a>
-	        </li>
-	        <li class="collection-item avatar">
-	        	<i class="material-icons circle green">assessment</i>
-	        	<span class="Title"><%= @lists.sample.name %></span>
-	        	<p><%= @lists.sample.description %></p>
-	        	<a href="#!" class="secondary-content">
-	        		<i class="material-icons top">control_point</i>
-	        	</a>
-	        </li>
-	        <li class="collection-item avatar">
-	        	<i class="material-icons circle green">assessment</i>
-	        	<span class="Title"><%= @lists.sample.name %></span>
-	        	<p><%= @lists.sample.description %></p>
-	        	<a href="#!" class="secondary-content">
-	        		<i class="material-icons top">control_point</i>
-	        	</a>
-	        </li>
-	        <li class="collection-item avatar">
-	        	<i class="material-icons circle green">assessment</i>
-	        	<span class="Title"><%= @lists.sample.name %></span>
-	        	<p><%= @lists.sample.description %></p>
-	        	<a href="#!" class="secondary-content">
-	        		<i class="material-icons top">control_point</i>
-	        	</a>
+	        	</button> -->
 	        </li>
 	      <% end %>
 	    </ul>

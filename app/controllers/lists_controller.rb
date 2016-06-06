@@ -21,6 +21,13 @@ class ListsController < ApplicationController
     end
   end
 
+  def copy
+    copy_list = List.find(params[:id])
+    current_user.lists << copy_list.deep_clone(include: :items)
+    current_user.save
+    redirect_to root_path
+  end
+
   def edit
   end
 
