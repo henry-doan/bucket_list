@@ -24,15 +24,8 @@
     <p>Add an item!</p>
   <% end %>
 
-<<<<<<< HEAD
-  <%= link_to 'Add new item', new_list_item_path(@list)%>
-  <%= link_to "Delete this list",  list_path(@list), method: :delete %>
-  <%= commontator_thread(@list) %>
-</div>
-=======
   
   <%= link_to 'Add new item', new_list_item_path(@list), :class => "waves-effect waves-light btn modal-trigger blue-text text-lighten-4"%>
   <%= link_to "Delete this list",  list_path(@list), method: :delete, :class => "waves-effect waves-light btn modal-trigger blue-text text-lighten-4" %>
 </div>
 
->>>>>>> ad9cb64b5c665e0f2fcf4edc310a4ae9fa60e36f
