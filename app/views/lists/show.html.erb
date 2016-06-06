@@ -15,4 +15,5 @@
 
   <%= link_to 'Add new item', new_list_item_path(@list)%>
   <%= link_to "Delete this list",  list_path(@list), method: :delete %>
+  <%= commontator_thread(@list) %>
 </div>

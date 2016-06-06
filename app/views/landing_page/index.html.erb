@@ -11,6 +11,14 @@
 		</div>	
 		<div class="col s12 m3">
 			<h5>Feed</h5>
+			<ul>
+				<% @comments.each do |comment| %>
+				  <li>
+				    <%= comment.display %>
+				    <hr />
+				  </li>
+				<% end %>
+			</ul>
 		</div>
 	</div>	
 	<div class="row">
@@ -94,9 +102,6 @@
 					  </div>
 
 			<% end %>
-		</div>
-		<div class="col s12 m3 offset-by-1">
-			<p>This is where information from the feed will go</p>
 		</div>
 	</div>
 	<%= will_paginate @lists %>
