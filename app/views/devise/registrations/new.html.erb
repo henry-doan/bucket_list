@@ -6,14 +6,14 @@
       <%= devise_error_messages! %>
 
       <div class="input-field col s4 offset-s4">
-        <%= f.label :email, :class => "validate" %><br />
+        <%= f.label :email, :class => "validate blue-grey-text text-darken-4" %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
   </div>
 
   <div class="row">
     <div class="input-field col s4 offset-s4">
-      <%= f.label :password, :class => "validate" %>
+      <%= f.label :password, :class => "validate blue-grey-text text-darken-4" %>
 
       <%= f.password_field :password, autocomplete: "off" %>
       <% if @minimum_password_length %>
@@ -24,7 +24,7 @@
 
   <div class="row">
     <div class="input-field col s4 offset-s4">
-      <%= f.label :password_confirmation, :class => "validate" %><br />
+      <%= f.label :password_confirmation, :class => "validate blue-grey-text text-darken-4" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   </div>

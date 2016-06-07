@@ -4,14 +4,14 @@
   <div class="row">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="input-field col s4 offset-s4">
-        <%= f.label :email, :class => "validate" %><br />
+        <%= f.label :email, :class => "validate blue-grey-text text-darken-4" %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
   </div>
 
   <div class="row">
       <div class="input-field col s4 offset-s4">
-        <%= f.label :password %><br />
+        <%= f.label :password, :class => "validate blue-grey-text text-darken-4" %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
   </div>

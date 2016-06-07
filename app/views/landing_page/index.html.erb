@@ -1,10 +1,6 @@
 <div class="container">
 	<div>
-<<<<<<< HEAD
-		<h3>Welcome, <%= current_user.email %>!</h3>
-=======
-		<h3 class="white-text">Welcome, <%= current_user.email%>!</h3>
->>>>>>> 1f4edfb61fd1b0b0c788bff711361589c3ab3f48
+		<h3 class="grey-text">Welcome, <%= current_user.email%>!</h3>
 	</div>
 	<div class="row">
 		<div class="col s12 m9">
@@ -75,11 +71,8 @@
 	        	<p><%= list.description %></p>
 	        	<form method='post' action="/copy/<%= list.id %>">
 	        		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-	        	  <button type='submit' class= "btn">+</button>
+	        	  <button type='submit' class= "btn"><i class="material-icons top">control_point</i></button>
 	        	</form>
-	        	<!-- <button class="btn" href="/copy" type="post">
-	        		<i class="material-icons top">control_point</i>
-	        	</button> -->
 	        </li>
 	      <% end %>
 	    </ul>

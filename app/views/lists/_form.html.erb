@@ -2,18 +2,18 @@
 	<%= form_for @list do |f|%>
 	<div class="row">
 		<div class="input-field col s4 offset-s4">
-		<%= f.label :name, :class => "validate"%>
+		<%= f.label :name, :class => "validate grey-text text-lighten-5"%>
 		<%= f.text_field :name %>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="input-field col s4 offset-s4">
-		<%= f.label :description, :class => "validate" %>
+		<%= f.label :description, :class => "validate grey-text text-lighten-5" %>
 		<%= f.text_area :description, :class => "materialize-textarea" %>
 		</div>
 	</div>
 
-		<%= f.submit :class => "waves-effect waves-light btn modal-trigger blue-text text-lighten-4"%>
+		<%= f.submit :class => "waves-effect waves-light btn blue-text text-lighten-4"%>
 
 	<% end %>

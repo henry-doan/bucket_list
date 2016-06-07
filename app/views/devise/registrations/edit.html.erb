@@ -6,7 +6,7 @@
       <%= devise_error_messages! %>
 
       <div class="input-field col s4 offset-s4">
-        <%= f.label :email, :class => "validate" %><br />
+        <%= f.label :email, :class => "validate black-text" %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
     </div>
@@ -18,13 +18,13 @@
     <div class="row">
       <div class="input-field col s4 offset-s4">
         <%= f.password_field :password, autocomplete: "off" %>
-        <%= f.label :password, :class => "validate" %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password, :class => "validate black-text" %> <i>(leave blank if you don't want to change it)</i><br />
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s4 offset-s4">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, :class => "black-text" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     </div>
@@ -32,18 +32,18 @@
     <div class="row">
       <div class="input-field col s4 offset-s4">
         <%= f.password_field :current_password, autocomplete: "off" %>
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password, :class => "black-text" %> <i>(we need your current password to confirm your changes)</i><br />
       </div>
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", :class => "waves-effect waves-light btn blue-text text-lighten-4" %>
     </div>
   <% end %>
 
   <h5>Cancel my account</h5>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "waves-effect waves-light btn blue-text text-lighten-4" %></p>
 
-  <%= link_to "Back", :back %>
+  <%= link_to "Back", :back, :class => "waves-effect waves-light btn blue-text text-lighten-4" %>
 </div>
