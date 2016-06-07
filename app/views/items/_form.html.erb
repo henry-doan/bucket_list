@@ -1,0 +1,32 @@
+<%= form_for [@list, @item] do |f|%>
+
+	<div class="row">
+		<div class="input-field col s4 offset-s4">
+			<%= f.label :name, :class => "validate grey-text text-lighten-5"%>
+			<%= f.text_field :name %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="input-field col s4 offset-s4">
+			<%= f.label :description, :class => "validate grey-text text-lighten-5" %>
+			<%= f.text_area :description, :class => "materialize-textarea" %>
+		</div>
+
+		<div class="input-field col s4 offset-s4">
+			<%= f.check_box :complete %>
+			<%= f.label :complete %>
+		</div>
+	</div>
+
+		<%= f.label :classification, :class => "validate grey-text text-lighten-5" %>
+		<div class="row">
+			<div class="input-field col s4 offset-s4">
+			<%= f.select :classification, options_for_select(["Select One", "travel","sports","shows/plays","Miscellaneous"]), {}, class: "browser-default" %>
+		</div>
+	</div>
+
+
+	<%= f.submit, :class => "waves-effect waves-light btn blue-text text-lighten-4" %>
+
+<% end %>

@@ -1,0 +1,16 @@
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Edit Profile', edit_user_registration_path %> </li>
+  <li class="divider"></li>
+  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <%= image_tag("logo-white.png", :alt => "bucket", class: "img") %>
+    <%= link_to 'BUCKET LIST', root_path, class: "brand-logo" %>
+    <ul class="right hide-on-med-and-down">
+       <li class=" avatar"><i class="medium material-icons circle">perm_identity</i></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>

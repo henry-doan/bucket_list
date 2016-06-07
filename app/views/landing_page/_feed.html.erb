@@ -1,0 +1,11 @@
+<div class="col s12 m3">
+  <h5 class="white-text">Feed</h5>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li>
+        <%= comment.display %>
+        <hr />
+      </li>
+    <% end %>
+  </ul>
+</div>

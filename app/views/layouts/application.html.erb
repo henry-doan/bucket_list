@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BucketList</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <% if flash.any? %>
+    	<% flash.each do |key, value| %>
+    	 <script>
+    	   Materialize.toast("<%= value %>", 4000, 'rounded indigo lighten-2');
+    	 </script>
+    	<% end %>
+    <% end %>
+
+    <%= render(partial: 'layouts/navbar') %>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
+    <%= render(partial: 'layouts/footer') %>
+  </footer>
+</body>
+</html>

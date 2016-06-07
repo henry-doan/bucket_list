@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="grey-text">Bucket List</h1>
+
+  <% if @list.items.any? %>
+    <div class="row">
+      <% @list.items.each do |i| %>
+        <div class="col s12 m6">
+          <div class="card indigo z-depth-3">
+            <div class="card-content white-text">
+              <span class="card-title"><%= link_to i.name, list_item_path(@list, i) %></span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Like</a>
+              <a href="#">Comment</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </ul>
+  <% else %>
+    <p>Add an item!</p>
+  <% end %>
+
+  
+  <%= link_to 'Add new item', new_list_item_path(@list), :class => "waves-effect waves-light btn modal-trigger blue-text text-lighten-4"%>
+  <%= link_to "Delete this list",  list_path(@list), method: :delete, :class => "waves-effect waves-light btn modal-trigger blue-text text-lighten-4" %>
+  <%= commontator_thread(@list) %>
+</div>
+

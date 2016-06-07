@@ -1,0 +1,40 @@
+<div class="container">
+	<div>
+
+		<h3 class="grey-text">Welcome, <%= current_user.email%>!</h3>
+	</div>
+	
+	<div>
+			<%= link_to 'New Bucket List', new_list_path %>
+			<br />
+		  <%= render(partial: 'suggestions') %>
+	</div>
+
+	<div id="modal1" class="modal bottom-sheet">
+	  <div class="modal-content">
+	   <h4>Suggestions</h4>
+	    <ul class="collection">
+	    	<% @ex_lists.each do |list| %>
+	        <li class="collection-item avatar">
+	        	<i class="material-icons circle green">assessment</i>
+	        	<span class="Title"><%= list.name %></span>
+	        	<p><%= list.description %></p>
+	        	<form method='post' action="/copy/<%= list.id %>">
+	        		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	        	  <button type='submit' class= "btn"><i class="material-icons top">control_point</i></button>
+	        	</form>
+	        </li>
+	      <% end %>
+	    </ul>
+	  </div>
+	  <div class="modal-footer">
+	    <%= link_to 'Make A New List', new_list_path, class: "modal-action close waves-effect waves-green btn right" %>
+	  </div>
+	</div>
+	<div class="row">
+		<%= render(partial: 'cardsrow')  %>
+		<%= render(partial: 'feed') %>
+	</div>	
+	<%= will_paginate @lists %>
+
+</div>
