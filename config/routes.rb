@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   post 'copy/:id', to: "lists#copy", as: 'copy'
 
 
-  resources :lists do
+  mount Commontator::Engine => '/commontator'
 
-  	mount Commontator::Engine => '/commontator'
+  resources :lists do 
     resources :items
   end
 
