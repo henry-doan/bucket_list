@@ -8,7 +8,7 @@ class LandingPageController < ApplicationController
   end
 
   def show
-  	commontator_thread_show(@list) 
+  	# commontator_thread_show(@list) 
   end
 
   def edit
