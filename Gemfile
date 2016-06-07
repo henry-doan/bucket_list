@@ -26,6 +26,8 @@ gem 'deep_cloneable', '~> 2.2.1'
 
 gem 'deep_cloneable', '~> 2.2.1'
 
+gem 'puma'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
